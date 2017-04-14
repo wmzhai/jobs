@@ -1,15 +1,32 @@
 import Expo from 'expo'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { TabNavigator } from 'react-navigation'
+import { TabNavigator, StackNavigator } from 'react-navigation'
 import AuthScreen from './screens/auth_screen'
 import WelcomeScreen from './screens/welcome_screen'
+import MapScreen from './screens/map_screen'
+import DeckScreen from './screens/deck_screen'
+import SettinsScreen from './screens/settings_screen'
+import ReviewScreen from './screens/review_screen'
+
 
 class App extends React.Component {
   render() {
     const MainNavigator = TabNavigator({
       welcome: { screen: WelcomeScreen },
-      auth: { screen: AuthScreen }
+      auth: { screen: AuthScreen },
+      main: {
+        screen: TabNavigator({
+          map: { screen: MapScreen },
+          deck: { screen: DeckScreen },
+          review: {
+            screen: StackNavigator({
+              review: { screen: ReviewScreen },
+              settings: { screen: SettinsScreen }
+            })
+          }
+        })
+      }
     })
 
     return (
