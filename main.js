@@ -2,13 +2,15 @@ import Expo from 'expo'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation'
+import { Provider } from 'react-redux'
+
+import store from './store'
 import AuthScreen from './screens/auth_screen'
 import WelcomeScreen from './screens/welcome_screen'
 import MapScreen from './screens/map_screen'
 import DeckScreen from './screens/deck_screen'
 import SettinsScreen from './screens/settings_screen'
 import ReviewScreen from './screens/review_screen'
-
 
 class App extends React.Component {
   render() {
@@ -30,9 +32,11 @@ class App extends React.Component {
     })
 
     return (
-      <View style={styles.container}>
-        <MainNavigator />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <MainNavigator />
+        </View>
+      </Provider>
     )
   }
 }
