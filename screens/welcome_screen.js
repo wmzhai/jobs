@@ -9,9 +9,13 @@ const SLIDE_DATA = [
 ]
 
 class WelcomeScreen extends Component {
+  onSlidesComplete = () => { //由于使用了Arrow Function，所以使用时不需要.bind(this)
+    this.props.navigation.navigate('auth')
+  }
+
   render() {
     return (
-      <Slides data={SLIDE_DATA} />
+      <Slides data={SLIDE_DATA} onComplete={this.onSlidesComplete}/>
     )
   }
 }

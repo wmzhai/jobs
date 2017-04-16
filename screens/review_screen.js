@@ -5,7 +5,7 @@ import { Button } from 'react-native-elements'
 class ReviewScreen extends Component {
   static navigationOptions = {
     title: 'Review Jobs',
-    header: ({ navigate }) => {
+    header: ({ navigate }) => { //Class获得不了props,所以通过这种方式获取navigate
       return {
         right: (
           <Button
