@@ -27,6 +27,12 @@ class App extends React.Component {
               settings: { screen: SettinsScreen }
             })
           }
+        },{
+          tabBarPosition: 'bottom',
+         // swipeEnabled: false,          
+          tabBarOptions: {
+            labelStyle: { fontSize: 12 }
+          }          
         })
       }
     }, {
