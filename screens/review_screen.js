@@ -41,10 +41,21 @@ class ReviewScreen extends Component {
       return (
         <Card title={jobtitle} key={jobkey}>
           <View style={{ height: 200 }}>
+            <MapView
+              style={{ flex: 1 }}
+              cacheEnabled={Platform.OS === 'android'}
+              scrollEnabled={false}
+              initialRegion={initialRegion}
+            />
             <View style={styles.detailWrapper}>
               <Text style={styles.italics}>{company}</Text>
               <Text style={styles.italics}>{formattedRelativeTime}</Text>
             </View>
+            <Button
+              title="Apply Now!"
+              backgroundColor="#03A9F4"
+              onPress={() => Linking.openURL(url)}
+            />
           </View>
         </Card>
       );
